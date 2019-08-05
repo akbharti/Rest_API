@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 let da = require('./da.js');
 
 
-exports.save = function(req,res)
+exports.save = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
@@ -16,7 +16,7 @@ exports.save = function(req,res)
 }
 
 
-exports.fileupload = function(req,res)
+exports.fileupload = (req,res) =>
 {
     let sampleFile = req.files.fileName;
     let usn = req.body.usn;
@@ -31,7 +31,7 @@ exports.fileupload = function(req,res)
     }); 
 }
 
-exports.update = function(req,res)
+exports.update = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
@@ -40,7 +40,7 @@ exports.update = function(req,res)
 }
 
 
-exports.delete = function(req,res)
+exports.delete = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
@@ -49,14 +49,14 @@ exports.delete = function(req,res)
 }
 
 
-exports.usn = function(req,res)
+exports.usn = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
     da.oneRow(obj.id,res); 
 }
 
-exports.table = function(req,res)
+exports.table = (req,res) =>
 {
     da.Table(res); 
 }
