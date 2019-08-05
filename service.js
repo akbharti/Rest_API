@@ -19,16 +19,16 @@ exports.save = function(req,res)
 exports.fileupload = function(req,res)
 {
     let sampleFile = req.files.fileName;
-              let usn = req.body.usn;
+    let usn = req.body.usn;
 
-              sampleFile.mv(`C:/Users/Abhishek.Kumar/Documents/upload/${sampleFile.name}`, (err)=>{   
-              if (err)
-               return res.status(500).send(err);
+    sampleFile.mv(`C:/Users/Abhishek.Kumar/Documents/upload/${sampleFile.name}`, (err)=>{   
+     if (err)
+       return res.status(500).send(err);
   
-              path = `C:/Users/Abhishek.Kumar/Documents/upload/${sampleFile.name}`;
-              da.fileInsert(usn,path);
-              res.send('File uploaded!');
-             }); 
+    path = `C:/Users/Abhishek.Kumar/Documents/upload/${sampleFile.name}`;
+    da.fileInsert(usn,path);
+    res.send('File uploaded!');
+    }); 
 }
 
 exports.update = function(req,res)
@@ -38,6 +38,7 @@ exports.update = function(req,res)
     da.Update(obj.id,obj.name);
     res.json(obj);
 }
+
 
 exports.delete = function(req,res)
 {

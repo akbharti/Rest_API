@@ -7,7 +7,6 @@
     app.use(bodyParser.json());
     app.use(fileUpload());
   
-    let da = require('./da.js');
     let service = require('./service.js');
 
          //Create post   
