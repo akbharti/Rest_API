@@ -27,6 +27,5 @@
           
           //get all data GET  '/table'
           app.get('/table',service.table);       
-      
 
         app.listen(PORT,()=>{console.log(`Express server is on port no. ${PORT}`);});

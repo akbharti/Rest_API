@@ -11,7 +11,7 @@ exports.save = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
-    da.Insert(obj.usn,obj.name);
+    da.insert(obj.usn,obj.name);
     res.json(obj);
 }
 
@@ -35,7 +35,7 @@ exports.update = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
-    da.Update(obj.id,obj.name);
+    da.update(obj.id,obj.name);
     res.json(obj);
 }
 
@@ -44,7 +44,7 @@ exports.delete = (req,res) =>
 {
     let obj = req.body;
     console.log(obj);
-    da.Delete(obj.id);
+    da.delete(obj.id);
     res.json(obj);
 }
 

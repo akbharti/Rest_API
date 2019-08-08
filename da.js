@@ -4,19 +4,19 @@
   let con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "root",
+    password: "root", 
     database: "student"
   });
 
-   con.connect(function(err) {
+   con.connect( (err) =>{
       if (err) throw err;
     });
 
     //Create post  
-     exports.Insert= function(usn,name){
+     exports.insert=  (usn,name)=>{
       let sqlInsert = `INSERT INTO stud_info (usn,name) VALUES ('${usn}','${name}')`;  
   
-      con.query(sqlInsert, function (err, result, fields) {
+      con.query(sqlInsert,   (err, result, fields) =>{
        if (err) 
           console.log(err);
       console.log("1 record inserted");
@@ -25,11 +25,11 @@
 
 
     //Create file post
-     exports.fileInsert= function(susn,filename){
+     exports.fileInsert=  (susn,filename)=>{
  
      let sqlInsert = `INSERT INTO stud_file (usn,filepath) VALUES ('${susn}','${filename}')`;     
       
-      con.query(sqlInsert, function (err, result, fields) {
+      con.query(sqlInsert,   (err, result, fields)=> {
        if (err) 
           console.log(err);
      console.log("1 file inserted");
@@ -38,11 +38,11 @@
 
 
     //update PUT
-     exports.Update= function(id,name){
+     exports.update=  (id,name)=>{
 
     let sqlUpdate = `UPDATE stud_info SET name = '${name}' WHERE id = '${id}'`;;  
     
-    con.query(sqlUpdate, function (err, result, fields) {
+    con.query(sqlUpdate,   (err, result, fields)=> {
       if (err) 
         console.log(err);
      console.log("1 record upadted");
@@ -50,11 +50,11 @@
    };
   
     //delete
-     exports.Delete= function(id){
+     exports.delete =  (id)=>{
 
     let sqlDelete = `DELETE FROM stud_info WHERE id='${id}'`;  
     
-    con.query(sqlDelete, function (err, result, fields) {
+    con.query(sqlDelete,   (err, result, fields)=> {
       if (err) 
         console.log(sqlDelete);
       console.log("1 record Deleted");
@@ -62,11 +62,11 @@
   };
 
     //get oneRow
-     exports.oneRow= function(id,res){
+     exports.oneRow=  (id,res)=>{
 
      let sqlOneRow = `SELECT * FROM stud_info WHERE id='${id}'`;  
       
-     con.query(sqlOneRow, function (err, result, fields) {
+     con.query(sqlOneRow,   (err, result, fields) =>{
         if (err) 
             console.log(err);
         else{
@@ -78,14 +78,14 @@
         
 
    // get full table
-    exports.Table= function(res){
+    exports.Table=  (res)=>{
 
       let sqlTable = ` SELECT * 
                        FROM stud_info 
                        INNER JOIN stud_file
                        ON stud_info.usn = stud_file.usn;`;
 
-    con.query(sqlTable, function (err, result, fields) {
+    con.query(sqlTable,   (err, result, fields) =>{
        if (err) 
           console.log(err);
       else{
