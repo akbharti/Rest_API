@@ -14,7 +14,7 @@ exports.parent = (req,res) =>
     console.log(err);
 
 if(err == null) 
-    da.parent(obj.family_id, obj.id, obj.name, obj.child_name, obj.gchild_name,res);
+   let dbErr =  da.parent(obj.family_id, obj.id, obj.name, obj.child_name, obj.gchild_name,res)
 else
     {
         if(err.details[0].message.includes("empty"))
