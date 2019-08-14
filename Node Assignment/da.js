@@ -20,11 +20,12 @@ let con = mysql.createConnection({
     con.query(sqlInsert,   (err, result, fields) =>{
       if (err){ 
         console.log(err.sqlMessage);
-         res.json(err.sqlMessage);
+        return err.sqlMessage;
+        // res.json(err.sqlMessage);
       }
         else{
     console.log("1 record inserted in parent table");
-    res.json("Cool! your record is inserted"); 
+    //res.json("Cool! your record is inserted"); 
   }
    });
  };
